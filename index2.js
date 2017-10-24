@@ -8,7 +8,7 @@ var contents = block.getElementsByClassName('adv__content');
 //#region stages
 
 const START = 60;
-const END = 70;
+const END = 120;
 
 const VH = window.screen.height - END - START;
 const HEIGHT_MIN = 120;
