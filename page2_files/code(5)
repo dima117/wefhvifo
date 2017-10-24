@@ -1,0 +1,295 @@
+/*
+description: 	ТГБ на смартфонной и планшетной версии (нижний всплывающий)
+path : /trunk/templates_2/inline/template_inline_bottom.js 
+*/ 
+(function () {
+
+var d = new Date();
+var drnd = d.getFullYear()+''+d.getMonth()+''+d.getDate();
+var index = parseInt("0");
+var count = parseInt("2");
+
+/* first banner */
+if (index == 0) {
+
+	/* check div, check js */
+	var o = document.getElementById("mlph2115");
+	if(!o) {
+		document.write('<div id="mlph2115"></div>');
+		setTimeout(arguments.callee, 50);
+		return 
+	} else {
+		var scriptEl = document.createElement("script");
+		scriptEl.setAttribute("type", "text/javascript");
+		scriptEl.setAttribute("async", "true");
+		scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/base.js?"+drnd);
+		o.appendChild(scriptEl);
+		scriptEl = document.createElement("script");
+		scriptEl.setAttribute("type", "text/javascript");
+		scriptEl.setAttribute("async", "true");
+		scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/inline_bottom.js?"+drnd);
+		o.appendChild(scriptEl);
+	}
+	
+	window.banner2115 = {
+		pid : 2115,
+		name : "banner2115",
+		rand_url : "rnd=268857102",
+		content : [".rbc-choice__opinions", ".l-content-fix .item__wrapper", ("") ? "" : ".js-newsslider-slide.current .article", ".js-rbcslider-slide.current .article", ".article", ".quote__office"],
+                content_size_ignore: [true],
+		content_offset : [200, -400],
+		content_hide : [".js-newsslider-slide.current .g-banner__article", ".js-rbcslider-slide.current .g-banner__article", ".js-rbcslider-slide.current .g-banner__article-mobile", ".js-newsslider-slide.current .js-newsslider-slide-footer", ".js-rbcslider-slide.current .js-rbcslider-slide-footer", ".article__other-materials"],
+		banner_count : isNaN(parseInt('')) ? parseInt("2") : parseInt(''),
+		max_letters : isNaN(parseInt("")) ? 90 : parseInt(""),
+		place_dir : "www.rbc.ru/topnews.html",
+		ph : null,
+                div_style : {
+                    marginLeft : "3px",
+                    zIndex : "4"
+                },
+		items : [], 
+		cookie : {
+                    timeout :  isNaN(parseInt("")) ? 24 : parseInt(""),
+                    postfix : "_bottom"
+		},
+		print_item : null,
+		print : null
+	};
+
+	if (2115 == 2324 || 2115 == 2346 ) banner2115.div_style = { maxWidth: 'none' };
+
+	try {
+		if (window.projectVersion == 'rbc8' || window.bannersVersion == 'v8') {
+			window.banner2115.dont_calc_position = true;
+			window.banner2115.div_style = {};
+		}
+		if (parent.projectVersion == 'rbc8' || parent.bannersVersion == 'v8') {
+			window.banner2115.dont_calc_position = true;
+			window.banner2115.div_style = {};
+		}
+	} catch(e) {}
+	
+	var ua = navigator.userAgent;
+	var checkIphone = /iphone/i.test(ua);
+	var checkIpad = /ipad/i.test(ua);
+	var checkAndroidTablet = /(Android(?=.*?tab)|Android 3|Android(?!.*?(phone|Mobile)))/i.test(ua);
+	var checkAndroid = /Android(?=.*?(Mobile))/i.test(ua);
+	var checkWP = /Windows Phone/i.test(ua);
+		
+	banner2115.isMobile = (checkIphone || checkAndroid || checkWP);
+	// default print_item
+	//print (view table)
+	if (banner2115.banner_count < count) count2115 = banner2115.banner_count;
+	else count2115 = count;
+        if(banner2115.isMobile) count2115 = 1;
+	window.banner2115.print_item = function (item) {
+		var s = '<a href="' + item.link + '" target="_blank" class="banners__bottom__item last" style = "color: #FFFFFF !important; ' + (banner2115.isMobile ? 'width : 100%;"' : '') + '>';
+		s += '<span class="banners__bottom__item-inner">';
+		s += '<img src="' + item.img + '" alt="" class="banners__bottom__img" />';
+		s += '<span class = "banners__bottom__title">' + item.text[0] + '</span>';
+		s += '</span>';
+		s += '</a>';
+		return s;			
+	}
+	
+	window.banner2115.print = function (b) {
+
+		if (!b.items || !b.items.length) return '';
+		var banner_str = '';
+
+		b.ph.placeholder.setAttribute('class', 'banners__bottom');
+		banner_str += '<div class="banners__bottom__wrap">';
+		
+		for (var i = 0, l = b.items.length; i < l; i++) {
+			if(typeof b.print_item == 'function') {
+				banner_str += b.print_item(b.items[i]);
+			}
+		}
+		
+		banner_str += '</div>';
+		
+		banner_str += '<div class="banners__bottom__close">';
+		banner_str += '<div class="banners__bottom__button">';
+		banner_str += '<span class="banners__bottom__button-icon" style ="background : url(//content.rbc.medialand.ru/close_sprite.png) no-repeat;"></span>';
+		banner_str += '<span class="banners__bottom__button-text">&#1047;&#1072;&#1082;&#1088;&#1099;&#1090;&#1100;</span>';
+		banner_str += '</div>';
+		banner_str += '</div>';
+	
+		return banner_str;
+	},
+	
+	window.init2115 = function () {
+		var o = document.getElementById("mlph2115");
+		if (typeof obj_mlBottom != 'undefined' && o != null) { 
+			obj_mlBottom.init(banner2115);	
+		} else {
+			setTimeout(init2115, 50);
+		}
+	}
+} else {
+	if (!window.banner2115) {
+		setTimeout(arguments.callee, 50);
+		return;
+	}
+}
+
+/*each banner*/
+if (index < count2115) {
+	banner2115.items.push({
+		'bid' : '460601',
+		'link' : 'https://engine.rbc.medialand.ru/reference?gid=49&pid=2115&bid=460601&rid=268857102',
+		'img' : 'https://content.rbc.medialand.ru/t17/a153856/b460598/75x50_out_fl.jpg',
+		'text' : ['Mitsubishi Outlander. &#1042;&#1099;&#1075;&#1086;&#1076;&#1072; &#1087;&#1086; &#1090;&#1088;&#1077;&#1081;&#1076;-&#1080;&#1085; &#1076;&#1086; 230 000 &#1088;. &#1074; &#1086;&#1082;&#1090;&#1103;&#1073;&#1088;&#1077;! &#1056;&#1077;&#1082;&#1083;&#1072;&#1084;&#1072; &#1054;&#1054;&#1054; &#171;&#1052;&#1052;&#1057; &#1056;&#1091;&#1089;&#187;'],	
+		'zpx' : ["https://engine.rbc.medialand.ru/action?bid=460601&pid=2115&rid=268857102&rid2=2055422842&jlt=on", "https://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&bt=21&ad=641764&pid=2636870&bid=5276712&bn=5276712&rnd=707393474",""]
+	});
+}
+if (index == count2115 - 1) init2115();
+
+})();/*
+description: 	ТГБ на смартфонной и планшетной версии (нижний всплывающий)
+path : /trunk/templates_2/inline/template_inline_bottom.js 
+*/ 
+(function () {
+
+var d = new Date();
+var drnd = d.getFullYear()+''+d.getMonth()+''+d.getDate();
+var index = parseInt("1");
+var count = parseInt("2");
+
+/* first banner */
+if (index == 0) {
+
+	/* check div, check js */
+	var o = document.getElementById("mlph2115");
+	if(!o) {
+		document.write('<div id="mlph2115"></div>');
+		setTimeout(arguments.callee, 50);
+		return 
+	} else {
+		var scriptEl = document.createElement("script");
+		scriptEl.setAttribute("type", "text/javascript");
+		scriptEl.setAttribute("async", "true");
+		scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/base.js?"+drnd);
+		o.appendChild(scriptEl);
+		scriptEl = document.createElement("script");
+		scriptEl.setAttribute("type", "text/javascript");
+		scriptEl.setAttribute("async", "true");
+		scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/inline_bottom.js?"+drnd);
+		o.appendChild(scriptEl);
+	}
+	
+	window.banner2115 = {
+		pid : 2115,
+		name : "banner2115",
+		rand_url : "rnd=268857102",
+		content : [".rbc-choice__opinions", ".l-content-fix .item__wrapper", ("") ? "" : ".js-newsslider-slide.current .article", ".js-rbcslider-slide.current .article", ".article", ".quote__office"],
+                content_size_ignore: [true],
+		content_offset : [200, -400],
+		content_hide : [".js-newsslider-slide.current .g-banner__article", ".js-rbcslider-slide.current .g-banner__article", ".js-rbcslider-slide.current .g-banner__article-mobile", ".js-newsslider-slide.current .js-newsslider-slide-footer", ".js-rbcslider-slide.current .js-rbcslider-slide-footer", ".article__other-materials"],
+		banner_count : isNaN(parseInt('')) ? parseInt("2") : parseInt(''),
+		max_letters : isNaN(parseInt("")) ? 90 : parseInt(""),
+		place_dir : "www.rbc.ru/topnews.html",
+		ph : null,
+                div_style : {
+                    marginLeft : "3px",
+                    zIndex : "4"
+                },
+		items : [], 
+		cookie : {
+                    timeout :  isNaN(parseInt("")) ? 24 : parseInt(""),
+                    postfix : "_bottom"
+		},
+		print_item : null,
+		print : null
+	};
+
+	if (2115 == 2324 || 2115 == 2346 ) banner2115.div_style = { maxWidth: 'none' };
+
+	try {
+		if (window.projectVersion == 'rbc8' || window.bannersVersion == 'v8') {
+			window.banner2115.dont_calc_position = true;
+			window.banner2115.div_style = {};
+		}
+		if (parent.projectVersion == 'rbc8' || parent.bannersVersion == 'v8') {
+			window.banner2115.dont_calc_position = true;
+			window.banner2115.div_style = {};
+		}
+	} catch(e) {}
+	
+	var ua = navigator.userAgent;
+	var checkIphone = /iphone/i.test(ua);
+	var checkIpad = /ipad/i.test(ua);
+	var checkAndroidTablet = /(Android(?=.*?tab)|Android 3|Android(?!.*?(phone|Mobile)))/i.test(ua);
+	var checkAndroid = /Android(?=.*?(Mobile))/i.test(ua);
+	var checkWP = /Windows Phone/i.test(ua);
+		
+	banner2115.isMobile = (checkIphone || checkAndroid || checkWP);
+	// default print_item
+	//print (view table)
+	if (banner2115.banner_count < count) count2115 = banner2115.banner_count;
+	else count2115 = count;
+        if(banner2115.isMobile) count2115 = 1;
+	window.banner2115.print_item = function (item) {
+		var s = '<a href="' + item.link + '" target="_blank" class="banners__bottom__item last" style = "color: #FFFFFF !important; ' + (banner2115.isMobile ? 'width : 100%;"' : '') + '>';
+		s += '<span class="banners__bottom__item-inner">';
+		s += '<img src="' + item.img + '" alt="" class="banners__bottom__img" />';
+		s += '<span class = "banners__bottom__title">' + item.text[0] + '</span>';
+		s += '</span>';
+		s += '</a>';
+		return s;			
+	}
+	
+	window.banner2115.print = function (b) {
+
+		if (!b.items || !b.items.length) return '';
+		var banner_str = '';
+
+		b.ph.placeholder.setAttribute('class', 'banners__bottom');
+		banner_str += '<div class="banners__bottom__wrap">';
+		
+		for (var i = 0, l = b.items.length; i < l; i++) {
+			if(typeof b.print_item == 'function') {
+				banner_str += b.print_item(b.items[i]);
+			}
+		}
+		
+		banner_str += '</div>';
+		
+		banner_str += '<div class="banners__bottom__close">';
+		banner_str += '<div class="banners__bottom__button">';
+		banner_str += '<span class="banners__bottom__button-icon" style ="background : url(//content.rbc.medialand.ru/close_sprite.png) no-repeat;"></span>';
+		banner_str += '<span class="banners__bottom__button-text">&#1047;&#1072;&#1082;&#1088;&#1099;&#1090;&#1100;</span>';
+		banner_str += '</div>';
+		banner_str += '</div>';
+	
+		return banner_str;
+	},
+	
+	window.init2115 = function () {
+		var o = document.getElementById("mlph2115");
+		if (typeof obj_mlBottom != 'undefined' && o != null) { 
+			obj_mlBottom.init(banner2115);	
+		} else {
+			setTimeout(init2115, 50);
+		}
+	}
+} else {
+	if (!window.banner2115) {
+		setTimeout(arguments.callee, 50);
+		return;
+	}
+}
+
+/*each banner*/
+if (index < count2115) {
+	banner2115.items.push({
+		'bid' : '460600',
+		'link' : 'https://engine.rbc.medialand.ru/reference?gid=49&pid=2115&bid=460600&rid=268857102',
+		'img' : 'https://content.rbc.medialand.ru/t17/a153856/b460598/75x50_out_fl.jpg',
+		'text' : ['&#1059;&#1089;&#1087;&#1077;&#1081;&#1090;&#1077; &#1082;&#1091;&#1087;&#1080;&#1090;&#1100; Outlander &#1089; &#1074;&#1099;&#1075;&#1086;&#1076;&#1086;&#1081; &#1087;&#1086; &#1090;&#1088;&#1077;&#1081;&#1076;-&#1080;&#1085; &#1076;&#1086; 230 000 &#1088;. &#1056;&#1077;&#1082;&#1083;&#1072;&#1084;&#1072; &#1054;&#1054;&#1054; &#171;&#1052;&#1052;&#1057; &#1056;&#1091;&#1089;&#187;'],	
+		'zpx' : ["https://engine.rbc.medialand.ru/action?bid=460600&pid=2115&rid=268857102&rid2=999998861&jlt=on", "https://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&bt=21&ad=641764&pid=2636870&bid=5276712&bn=5276712&rnd=707393474",""]
+	});
+}
+if (index == count2115 - 1) init2115();
+
+})();

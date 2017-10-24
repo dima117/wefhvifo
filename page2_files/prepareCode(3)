@@ -1,0 +1,65 @@
+/* bannerID: 2260431, campaignID: 727819 */
+/**
+ * Template: Sync_Async
+ *
+ * @version 1.0.0-SNAPSHOT-1
+ * Based on v1.0.3
+ */
+
+(function(){
+var pix = document.createElement('img');
+pix.src = 'http://ads.adfox.ru/239800/event?hash=8bfced132f87b111&pm=u&utg=oxum&lts=ewzvnrr&rqs=IxbOGhIAAAA3Ue9ZCqDum2eVjdmqLcxx&p2=ffpw&pr=bbbiexx&rand=ehkvkqo&p1=btdlx&p5=eypvr';
+})();
+
+
+(function(URLs) {
+	for (var i = 0; i < URLs.length && URLs[i]; i++) {
+		if (!URLs[i].match(/adfox\.ru\/transparent\.gif$/)) {
+			(function(url, img) {
+				img.src = url;
+			})(URLs[i], new Image());
+		}
+	}
+})('http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&bt=21&ad=642482&pid=2660403&bid=5290741&bn=5290741&rnd=173084026'.split('|'));
+
+(function(){
+    var _pr1 = 0,
+        _width = ('100%'.indexOf('%')!=-1?'100%':parseInt('100%')+'px'),
+        _cssText = 'margin: 0 auto;',
+        _image = 'http://banners.adfox.ru/171023/adfox/727819/2260431.jpg',
+        _reference = 'http://ads.adfox.ru/239800/goLink?hash=1058f4d7211b6ea6&rqs=IxbOGhIAAAA3Ue9ZCqDum2eVjdmqLcxx&p2=ffpw&pr=bbbiexx&rand=faxhggw&p1=btdlx&p5=eypvr',
+        _target = '_blank',
+        _alt = '',
+        _ph = null,
+        _html;
+
+    _html = '<a href="'+_reference+'" target="'+_target+'">'+
+        '	<img src="'+_image+'" alt="'+_alt+'" width="'+parseInt(_width)+'" style="width: 100%; height: auto; vertical-align: middle; border: 0px;">'+
+        '</a>';
+
+    if (_pr1) {
+        setTimeout(function(){document.close();},100);
+        _ph = parent.document.getElementById('AdFox_banner_'+_pr1);
+        _ph.innerHTML = _html;
+        if (setWidth()) {
+            _ph.style.width = _width;
+        }
+        _ph.style.cssText += _cssText;
+    } else {
+        document.write('<div style="width: '+_width+'; '+_cssText+'">'+_html+'</div>');
+    }
+
+    function setWidth() {
+        var banner = null;
+        if (typeof(parent.adfox) != 'undefined' && typeof(parent.adfox.getBanner) != 'undefined') {
+            var banner = parent.adfox.getBanner(_pr1);
+            if (typeof(banner.length) == 'undefined' && banner.settings.indexOf('scale') != -1 && banner.ph.parentNode.clientWidth < parseInt(_width)) {
+                return false;
+            }
+        }
+        return true;
+    }
+})();
+
+/* imho TNS counter */
+(function(URLs) { for (var i = 0; i < URLs.length && URLs[i]; i++) { if (!URLs[i].match(/adfox\.ru\/transparent\.gif$/)) { (function(url, img) { img.src = url; })(URLs[i], new Image()); } } })('https://www.tns-counter.ru/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_monitoring-3/173084026'.split('|'));

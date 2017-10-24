@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- saved from url=(0018)http://www.rbc.ru/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <script type="text/javascript" src="./adfox_HTML5.js"></script> <meta name="ad.size" content="width=300,height=250"> <title>300x250</title>  <script src="./easeljs-0.8.1.min.js"></script> <script src="./tweenjs-0.6.1.min.js"></script> <script src="./movieclip-0.8.1.min.js"></script> <script src="./preloadjs-0.6.1.min.js"></script> <script src="./300x250.js"></script>  <script>
+var canvas, stage, exportRoot;
+
+    var flashVars = {
+      reference: "http://ads.adfox.ru/239800/goLink?hash=b5fd383c0c53ec4e&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=balonyf&p1=btdlx&p5=eynzu",
+      link: "",
+      target: "_blank",
+      rnd: parseInt("0") || parseInt("247324514"),
+      events: [
+            "",
+            "http://ads.adfox.ru/239800/event?hash=970ce77b0b4829c1&pm=b&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=ecfvqo&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=cb783067c2c4538d&pm=c&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=fnlepzt&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=cbec4cb4929bb8b6&pm=d&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=ewfzvzu&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=a72e3bd361408934&pm=e&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=cifsqdy&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=131a79bc1cdb02f0&pm=f&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=fvjoumv&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=779b452e6d607419&pm=g&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=bptxiqf&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=3119060126136667&pm=h&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=rxiyhe&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=24dea9632cc76f13&pm=i&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=dinmyqt&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=2473e5f00965c265&pm=j&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=dmhfsaj&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=fa10ca4f34ce6fc4&pm=k&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=efwjbed&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=a273e63e88cdbec0&pm=l&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=mvtlju&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=db86aa0344c9b081&pm=m&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=cpfymsl&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=6d09bcf2f249f8e8&pm=n&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=gcnwdvv&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=bc70dc6b2b3472c4&pm=o&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=gtvrdde&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=f00a2c3ff7fcb1e0&pm=p&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=brcgzyd&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=319811a942c30295&pm=q&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=elljuax&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=085ffff8b8ba8970&pm=r&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=fsjoilp&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=5058dbf10be50950&pm=s&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=clffheb&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=90d25a7fd5d25789&pm=t&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=bgbmsqq&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=a39d09bb85727ce3&pm=u&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=cvhfkse&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=fee5ba99efb1bf6a&pm=v&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=glhsbgk&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=9809057429702d93&pm=w&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=fuykylz&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=7873fc5d7beacfe4&pm=x&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=geqanyd&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=269a85a5af838d5e&pm=y&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=dlbakos&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=64065cee3aa51620&pm=z&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=ecfvdeg&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=88ee06d099ab52a9&pm=ba&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=eskzuxc&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=9e855da275fe93a3&pm=bb&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=bdoyzds&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=f506da4905fbbf3c&pm=bc&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=cacjloh&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=b01b4da1ec3dac6c&pm=bd&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=emgpgra&p1=btdlx&p5=eynzu",
+            "http://ads.adfox.ru/239800/event?hash=8bcaa5cdab0ccf84&pm=be&utg=oxum<s=ewzvnov&rqs=IxbOGhIAAADtUO9ZP7i-XMbsbqbWQ74e&p2=ffpw&pr=fbslgib&rand=bdjmnbz&p1=btdlx&p5=eynzu"
+      ]
+    };
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+	
+	canvas.addEventListener("click", function() {
+    window.callClick();
+});
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete(evt) {
+	exportRoot = new lib._300x250();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+	stage.enableMouseOver();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script> </head>  <body onload="init();" style="background-color:#D4D4D4;margin:0px; cursor:pointer;" marginwidth="0" marginheight="0"> 	<canvas id="canvas" width="300" height="250" style="background-color:#FFFFFF"></canvas>  
+</body></html>

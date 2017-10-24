@@ -1,0 +1,1 @@
+document.write("<!-- default banner -->\r\n<script>\r\n(function(URLs) { for (var i = 0; i < URLs.length && URLs[i]; i++) { if (!URLs[i].match(/adfox\\.ru\\/transparent\\.gif$/)) { (function(url, img) { img.src = url; })(URLs[i], new Image()); } } })(\'http://www.tns-counter.ru/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_monitoring-3/1865674158\'.split(\'|\'));\r\n</script>");
