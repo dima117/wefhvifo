@@ -1,0 +1,37 @@
+* {
+  transition-property: all;
+  transition-duration: 1s;
+}
+
+:focus {
+  outline: none;
+}
+
+
+#canvas {
+  cursor: pointer;
+  outline: 1px solid black;
+  outline-offset: -1px;
+}
+
+.unsel {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}  
+
+
+#b2 {
+  position: relative;
+  margin-top: -80px;
+  left: 25px;
+  width: 190px;
+  height: 25px;
+  text-decoration: none;
+  cursor: pointer; 
+
+  //border: 1px solid red;
+  display: none;
+}
+

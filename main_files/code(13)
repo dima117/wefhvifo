@@ -1,0 +1,202 @@
+/*
+description: Native videо в статье
+path : /trunk/templates_2/videobanner/template_video_banner.js
+*/ 
+(function () {
+
+var d = new Date();
+var drnd = d.getFullYear()+''+d.getMonth()+''+d.getDate();
+var _params = "multy".split("|");
+var _postfix = (_params[0] == "multy") ? "_293484672" : "";
+
+/*  check div, check js   */
+var parEl= document.getElementById("medialand_adland_inline_div_2072" + _postfix);
+if(!parEl) {
+	if (!window.PREVENT_DOCWRITE) document.write('<div id="medialand_adland_inline_div_2072' + _postfix + '" style="display: none">wait</div>');
+	setTimeout(arguments.callee, 50);
+	return 
+} else {
+        var needCss = false;
+	var scriptEl = document.createElement("script");
+	scriptEl.setAttribute("type", "text/javascript");
+	scriptEl.setAttribute("async", "true");
+	scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/base.js?"+drnd);
+	parEl.parentNode.insertBefore(scriptEl, parEl);
+	scriptEl =  document.createElement("script");
+	scriptEl.setAttribute("type", "text/javascript");
+	scriptEl.setAttribute("async", "true");
+	scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/video_banner.js?"+drnd);
+	parEl.parentNode.insertBefore(scriptEl, parEl);
+        if (!window.videojs) {
+                scriptEl =  document.createElement("script");
+                scriptEl.setAttribute("type", "text/javascript");
+                scriptEl.setAttribute("async", "true");
+                scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_r/video-js.6.2/video.js?"+drnd);
+                parEl.parentNode.insertBefore(scriptEl, parEl);
+                needCss = true;
+        }
+	scriptEl =  document.createElement("script");
+	scriptEl.setAttribute("type", "text/javascript");
+	scriptEl.setAttribute("async", "true");
+	scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/video_banner_plugin.js?"+drnd);
+	parEl.parentNode.insertBefore(scriptEl, parEl);
+}
+
+window["banner2072" + _postfix] = {
+    name : "banner2072" + _postfix,
+    bid  : "456687",
+    pid  : "2072" + _postfix,
+    flv  : "https://content.rbc.medialand.ru/t17/a154134/b456680/FASTFOOD_prev_15sec_convert.mp4.flv",
+    mp4  : "https://content.rbc.medialand.ru/t17/a154134/b456680/FASTFOOD_prev_15sec_convert.mp4.mp4",
+    webm : "https://content.rbc.medialand.ru/t17/a154134/b456680/FASTFOOD_prev_15sec_convert.mp4.webm",
+    ogv  : "https://content.rbc.medialand.ru/t17/a154134/b456680/FASTFOOD_prev_15sec_convert.mp4.ogv",
+    pic  : "",
+    link : "https://engine.rbc.medialand.ru/reference?gid=2&pid=2072&bid=456687&rid=293484672",
+    w    : isNaN(parseInt("100%")) ? 600 : parseInt('100%') + '%',
+    h    : isNaN(parseInt("")) ? 400 : parseInt(''),
+    bg_mask  : "",
+    bg_color : "",
+    flag_animate_open : false,
+    format : '16x9',
+    eshows   : "https://engine.rbc.medialand.ru/action?bid=456687&pid=2072&rid=293484672&rid2=1822993606&jlt=on" !== "",
+    eshows_type : "start",
+    custom_mode : "none",
+    rand_url : "rnd=293484672",
+    client_zeropixel : ["https://r.mail.ru/r/4166?btype=show&gpmddealid=27714848&puid1=605&puid2=3&puid3=1&rnd=","https://vtb24ru.solution.weborama.fr/fcgi-bin/dispatch.fcgi?a.A=im&a.si=4321&a.te=146&a.aap=135&a.agi=426&a.hr=XC&g.ra=~RANDOM~", "https://www.tns-counter.ru/V13a****weborama_ad/ru/UTF-8/tmsec=wadvance2_43215-37-1/~RANDOM~", ""],
+    zeropixel: ["https://engine.rbc.medialand.ru/action?bid=456687&pid=2072&rid=293484672&rid2=1822993606&jlt=on"],
+    div_style : {
+        display: 'block',
+        position: 'relative',
+        margin: '0',
+        overflow: 'hidden',
+        maxWidth: '875px'
+    },
+    events : {
+	"creativeview" : [],
+	"start" : ["https://engine.rbc.medialand.ru/event?gid=2&pid=2072&bid=456687&rid=293484672&eid=1", "https://vtb24ru.solution.weborama.fr/fcgi-bin/dispatch.fcgi?a.A=ev&a.si=4321&a.te=146&a.aap=135&a.agi=426&a.evn=start&g.ra=~RANDOM~"],
+	"firstquartile" : ["https://engine.rbc.medialand.ru/event?gid=2&pid=2072&bid=456687&rid=293484672&eid=2", "https://vtb24ru.solution.weborama.fr/fcgi-bin/dispatch.fcgi?a.A=ev&a.si=4321&a.te=146&a.aap=135&a.agi=426&a.evn=firstQuartile&g.ra=~RANDOM~"],
+	"midpoint" : ["https://engine.rbc.medialand.ru/event?gid=2&pid=2072&bid=456687&rid=293484672&eid=3", "https://vtb24ru.solution.weborama.fr/fcgi-bin/dispatch.fcgi?a.A=ev&a.si=4321&a.te=146&a.aap=135&a.agi=426&a.evn=midpoint&g.ra=~RANDOM~"],
+	"thirdquartile" : ["https://engine.rbc.medialand.ru/event?gid=2&pid=2072&bid=456687&rid=293484672&eid=4", "https://vtb24ru.solution.weborama.fr/fcgi-bin/dispatch.fcgi?a.A=ev&a.si=4321&a.te=146&a.aap=135&a.agi=426&a.evn=thirdQuartile&g.ra=~RANDOM~"],
+	"complete" : ["https://engine.rbc.medialand.ru/event?gid=2&pid=2072&bid=456687&rid=293484672&eid=5", "https://vtb24ru.solution.weborama.fr/fcgi-bin/dispatch.fcgi?a.A=ev&a.si=4321&a.te=146&a.aap=135&a.agi=426&a.evn=complete&g.ra=~RANDOM~"],
+	"unmute" : ["https://engine.rbc.medialand.ru/event?gid=2&pid=2072&bid=456687&rid=293484672&eid=6"]
+    },
+    fraction : isNaN(parseInt('')) ? 0.2 : parseInt('') / 100,
+    flag_click : isNaN(parseInt('0')) ? 1 : (parseInt('0') == 0),
+    flag_text : true,
+    close_timeout : isNaN(parseInt('')) ? 3 : parseInt(''),
+    postvideo_on : true,
+    postvideo_url : 'http://vod-video.rbc.ru/archive/promo/telecast_360p.mp4',
+    alt_code : (parseInt('2072') && parseInt('2072') != parseInt('2072') ? {
+        pid : '2072' + _postfix,
+        link: '//engine.rbc.medialand.ru/code?pid=2072&gid=2%&rid=293484672&flv=multy'
+    } : false),
+    wrapper : true,
+    needCss : needCss,
+    invisible_percent : parseInt('0') || 0,
+    rb_proxy : parseInt('0') || 0
+};
+if (!window["banner2072" + _postfix].eshows_type) window["banner2072" + _postfix].eshows_type = "start";
+if (window["banner2072" + _postfix].invisible_percent && window["banner2072" + _postfix].invisible_percent >= parseInt(Math.random()*100)) {
+    window["banner2072" + _postfix].eshows_type_save = window["banner2072" + _postfix].eshows_type;
+    window["banner2072" + _postfix].eshows_type = "creativeview";
+}
+
+try {
+    if (window["banner2072" + _postfix].rb_proxy) {
+
+        function _replace(subject, pattern, replacement) {
+            if (typeof subject == 'string' && subject.match(pattern)) {
+                subject = subject.replace(pattern, replacement);
+            } else if (typeof subject == 'object') {
+                for (var k in subject) {
+                    if (!subject.hasOwnProperty(k)) continue;
+                    subject[k] = _replace(subject[k], pattern, replacement);
+                }
+            }
+            return subject;
+        }
+
+        if (/^https?:\/\/engine\.rbc\.medialand\.ru/i.test(window["banner2072" + _postfix].link)) window["banner2072" + _postfix].link += "&reference=" + "https%3a%2f%2fr.mail.ru%2fr%2f4166%3fbtype%3dredir%26gpmddealid%3d27714848%26puid1%3d605%26puid2%3d3%26puid3%3d1%26rnd%3d". replace('r.mail.ru', 'content.rbc.medialand.ru');
+        window["banner2072" + _postfix].zeropixel = _replace(window["banner2072" + _postfix].zeropixel, 'r.mail.ru', 'content.rbc.medialand.ru');
+        window["banner2072" + _postfix].client_zeropixel = _replace(window["banner2072" + _postfix].client_zeropixel, 'r.mail.ru', 'content.rbc.medialand.ru');
+        window["banner2072" + _postfix].events = _replace(window["banner2072" + _postfix].events, 'r.mail.ru', 'content.rbc.medialand.ru');
+    }
+} catch(e) {}
+
+try {
+  if (_params[1]) {
+    var _pairs = unescape(_params[1]).split(';');
+    for (var i = 0, max = _pairs.length, _pair; i < max; i++) {
+        _pair = _pairs[i].split(':');
+        if (_pair[0] && _pair[1]) {
+            window["banner2072" + _postfix].div_style[ _pair[0] ] = _pair[1];
+        }
+    }
+  } else {
+    if ('2072' == 2006 || '2072' == 2090 || '2072' == '2388' || '2072' == '2389' || '2072' == '2390') {
+       window["banner2072" + _postfix].w = "auto";
+        try {
+             if (true === window.rosbusinessconsulting.config.get('articleColumn')) {
+                   window["banner2072" + _postfix].div_style.marginRight = '0';
+             }
+        } catch (e) {}
+
+        try {
+             if (true === parent.rosbusinessconsulting.config.get('articleColumn')) {
+                   window["banner2072" + _postfix].div_style.marginRight = '0';
+             }
+        } catch (e) {}
+
+        if (!window.deviceType) {
+	if (window.projectVersion == 'rbc8' || window.bannersVersion == 'v8') {
+		window["banner2072" + _postfix].div_style.margin = '0'; 
+	} else if (window.projectVersion == 'rbc7' || window.bannersVersion == 'v7') {
+		window["banner2072" + _postfix].div_style.margin = '0px -110px 0px 0px'; 
+	} else {
+		window["banner2072" + _postfix].div_style.margin = '0px -216px 0px 0px';
+	}
+        }
+		
+	try {
+	    if (!parent.deviceType) {
+		if (parent.projectVersion == 'rbc8' || parent.bannersVersion == 'v8') {
+			window["banner2072" + _postfix].div_style.margin = '0'; 
+		} else if (parent.projectVersion == 'rbc7' || parent.bannersVersion == 'v7') {
+			window["banner2072" + _postfix].div_style.margin = '0px -110px 0px 0px'; 
+		} else {
+			window["banner2072" + _postfix].div_style.margin = '0px -216px 0px 0px';
+		}
+	    }
+	} catch (e) {}
+    }
+
+    if (window.projectVersion == 'rbc8' || window.bannersVersion == 'v8') {
+	window["banner2072" + _postfix].div_style.maxWidth =  '';
+    } else if (window.projectVersion == 'rbc7' || window.bannersVersion == 'v7') {
+	window["banner2072" + _postfix].div_style.maxWidth = ('2089' == '2072')? '' : '770px';
+    }
+
+    try {
+		if (parent.projectVersion == 'rbc8' || parent.bannersVersion == 'v8') {
+			window["banner2072" + _postfix].div_style.maxWidth = '';
+		} else if (parent.projectVersion == 'rbc7' || parent.bannersVersion == 'v7') {
+			window["banner2072" + _postfix].div_style.maxWidth = ('2089' == '2072')? '' : '770px';
+		}
+    } catch (e) {}
+  }
+} catch(e) {}
+
+window["init2072" + _postfix] = function() {
+	var o = document.getElementById("medialand_adland_inline_div_2072" + _postfix);
+	if (typeof(obj_mlVideoBanner) != 'undefined' && o != null && window.videojs != 'undefined'){
+		if(o.firstChild)
+			o.removeChild(o.firstChild);
+		obj_mlVideoBanner.init(window["banner2072" + _postfix]);
+	} else {
+		setTimeout('window.init2072' + _postfix + '();', 50);
+	}
+}
+//timeout for synchron banner in rbc style
+setTimeout(function () { window["init2072" + _postfix](); }, 2000);
+//window["init2072" + _postfix]();
+})();

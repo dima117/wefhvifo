@@ -1,0 +1,16 @@
+var pid = "2042";
+var rnc = 0;
+if (!window.ml_places) window.ml_places = {};
+window.ml_places[2042] = false;
+try {
+var rpd = parent.document;
+    if (rpd != document) {
+        var rph = rpd.getElementById("mlph"+pid);
+        rnc = rph ? 1 : 0;
+        if (!parent.ml_places) parent.ml_places = {};
+        parent.ml_places[2042] = false;
+    }
+} catch(e) {};
+if (rnc){
+ setTimeout("document.close();", 1000);
+}

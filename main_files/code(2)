@@ -1,0 +1,59 @@
+(function () {
+//155852
+var d=new Date();
+var drnd = d.getFullYear()+''+d.getMonth()+''+d.getDate();
+
+if (!window["ml_informer_config1725_333579726"]) window["ml_informer_config1725_333579726"] = window.ml_informer_config;
+if (!window["ml_informer_config1725_333579726"]) return;
+
+var parEl= document.getElementById("medialand_adland_inline_div_1725_333579726");
+if(!parEl) {
+	if (!window.PREVENT_DOCWRITE) document.write('<div id="medialand_adland_inline_div_1725_333579726" style="display: none"></div>');
+	setTimeout(arguments.callee, 50);
+	return;
+} else {
+      var scriptEl = document.createElement("script");
+      scriptEl.setAttribute("type", "text/javascript");
+      scriptEl.setAttribute("async", "true");
+      scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/base.js?" + drnd);
+      parEl.appendChild(scriptEl);
+      scriptEl = document.createElement("script");
+      scriptEl.setAttribute("type", "text/javascript");
+      scriptEl.setAttribute("async", "true");
+      scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/master_banner2.js?" + drnd + "1");
+      parEl.appendChild(scriptEl);
+}
+
+window["banner1725_333579726"] = {
+    name : "banner1725_333579726",
+    pid : "1725_333579726",
+    bid : "155852",
+    master_pid : "1725_333579726",
+    banner_pid : isNaN(parseInt("1106")) ? 0 : parseInt("1106"),
+    banner_gid : 17,
+    banner_link : "//engine.rbc.medialand.ru/code",
+    zeropixel : ["https://engine.rbc.medialand.ru/action?bid=155852&pid=1725&rid=333579726&rid2=786032722&jlt=on"],
+    link : "https://engine.rbc.medialand.ru/reference?gid=18&pid=1725&bid=155852&rid=333579726"
+};
+
+if (window["banner1725_333579726"].banner_pid) {
+
+    var sc = document.createElement("script");
+    sc.setAttribute("type", "text/javascript");
+    sc.setAttribute("async", "true"); 
+    sc.setAttribute("src", window["banner1725_333579726"].banner_link + "?pid=" + window["banner1725_333579726"].banner_pid + "&gid=" + window["banner1725_333579726"].banner_gid + "&oin=1%&flv=1725_333579726&rid=" + Math.round(Math.random()*100000000));
+    parEl.appendChild(sc);
+
+    window["init1725_333579726"] = function() {
+	if (typeof(obj_mlInformerMasterBanner) == 'undefined' || typeof(window["ml_banner_data_container1725_333579726"]) == "undefined") {
+	    setTimeout(window['init1725_333579726'], 50);
+	    return;
+	}
+	obj_mlInformerMasterBanner.init(window["banner1725_333579726"],
+	    window["ml_informer_config1725_333579726"],
+	    window["ml_banner_data_container1725_333579726"]);
+    };
+
+    window["init1725_333579726"]();
+}
+})();

@@ -1,0 +1,95 @@
+/* код ответа по-умолчанию для геометрии inline */
+
+(function () {
+	function notifyEvent(node) {
+		try {
+			var data = {'pid' : 2069, 'type' : 'empty'};
+                        /* find banner location name */
+                         try {   
+                                  if (/(^|\s+)banner(\s+|$)/.test(node.className) && node.getAttribute('data-banner-id')) {
+                                	data['placeName'] = node.getAttribute('data-banner-id');
+                                   }
+                                } catch(e) {}
+			if (typeof w.CustomEvent == 'function') { /* modern browsers */
+				event = new w.document.defaultView.CustomEvent('banner', { 'bannerData': data });
+				event.bannerData = data;
+			} else if (typeof w.Event == 'function') {
+				event = new w.Event('banner');
+				event.bannerData = data;
+			} else if (typeof w.document.createEvent == 'function') { /* IE 9+ */
+				event = w.document.createEvent('Event');
+				event.initEvent('banner', true, true);
+				event.bannerData = data;
+			}
+			if (event) w.document.dispatchEvent(event);
+		} catch(e) {}
+	}
+
+	function findIframe() {
+	  var ifr, elem;
+          if (window.frameElement) return window.frameElement;
+	  try {
+		if(document.all && !window.opera) {
+		  ifr = parent.frames;
+		} else if(document.getElementsByTagName) {
+		  ifr = parent.document.getElementsByTagName('iframe');
+		}
+	  } catch(e) {}
+
+	  for (var i = 0; i < ifr.length; i++) {
+		try {
+		  if(document.all && !window.opera) {
+			if (ifr[i].document == document) elem = ifr[i].frameElement;
+		  } else {
+			if (ifr[i].contentDocument == document) elem = ifr[i];
+		  }
+		} catch (e) {}
+	  }
+	  return elem;
+	}
+
+	var pid = "2069";
+	var rnc = 0;
+	if (!window.ml_places) window.ml_places = {};
+	window.ml_places[2069] = false;
+	try {
+		var rpd = parent.document;
+		if (rpd != document) {
+		    var rph = rpd.getElementById("mlph"+pid);
+                    if (!rph && window.frameElement && /^(ya(ndex)?_(partner|rtb)_)/.test(window.frameElement.id)) rph = window.frameElement;
+		    rnc = rph ? 1 : 0;
+		    if (!parent.ml_places) parent.ml_places = {};
+		    parent.ml_places[2069] = false;
+		}
+	} catch (e) {}
+
+	if (rnc){
+		setTimeout("document.close();", 1000);
+	}
+
+	var w = rnc? parent : window;
+	if (1 /*w.projectVersion == 'rbc7' || w.bannersVersion == 'v7'*/) {
+		try {
+			var node;
+			if (rnc) {
+				node = findIframe();
+			} else {
+				node = (node = document.getElementById("medialand_adland_inline_div_2069"))? node : document.getElementById("mlph2069");
+				if (!node) node = (node = document.getElementById("medialand_adland_inline_div_2069_182997427"))? node : document.getElementById("mlph2069_182997427");
+				if (!node && document.currentScript && !document.currentScript.async) node = document.currentScript.parentNode;
+			}
+
+			while (node) {
+				if (/(^|\s+)banner(\s+|$)/.test(node.className)) {
+					/* disable background-color for stub on v7 */
+					node.style.display = 'none';
+                    /* send banner event when collapse div.banner w/height */
+					if (/(^|\s+)g\-banner__height\-/.test(node.className)) notifyEvent(node);
+					break;
+				}
+				node = node.parentNode;
+			}
+		} catch (e) {}
+	}
+
+})();

@@ -1,0 +1,1 @@
+RA.config.set('showAds', true);

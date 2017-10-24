@@ -1,0 +1,293 @@
+/*
+description : нижние информеры главная страницы Realty.rbc.ru и rbc.ru в блоке "Недвижимость" /
+path : /trunk/templates_2/teaser/template_teaser_nedv_2_columns_new.js
+*/
+
+(function () {
+
+var d = new Date();
+var drnd = d.getFullYear()+''+d.getMonth()+''+d.getDate();
+var index = parseInt("0");
+var count = parseInt("2");
+
+/* first banner */
+if (index == 0) {
+
+	/* check div, check js */
+	var o = document.getElementById("mlph1116_535121699");
+	if(!o) {
+		if (!window.PREVENT_DOCWRITE) document.write('<div id="mlph1116_535121699"></div>');
+		setTimeout(arguments.callee, 50);
+		return 
+	} else {
+		var scriptEl = document.createElement("script");
+		scriptEl.setAttribute("type", "text/javascript");
+		scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/base.js?"+drnd);
+                o.parentNode.insertBefore(scriptEl, o);
+		scriptEl =  document.createElement("script");
+		scriptEl.setAttribute("type", "text/javascript");
+		scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/inline_text_teaser.js?"+drnd);
+                o.parentNode.insertBefore(scriptEl, o);
+	}
+	
+	window.banner1116_535121699 = {
+		pid : "1116_535121699",
+		rand_url : "",
+		banner_count : isNaN(parseInt('')) ? parseInt('2') : parseInt(''),
+		max_letters : isNaN(parseInt("")) ? 150 : parseInt(""),
+		place_dir : "rbc.ru/",
+		items : [], 
+		print_item : null,
+		print : null
+	};
+	// default print_item
+	//print (view table)
+	if (banner1116_535121699.banner_count < count) window.count1116_535121699 = banner1116_535121699.banner_count;
+	else window.count1116_535121699 = count;
+	window.banner1116_535121699.print_item = function (ph, item) {
+		var s = '';
+                var v7 = (ph.window.projectVersion == 'rbc7') || (ph.window.bannersVersion == 'v7');
+                var v8 = (ph.window.projectVersion == 'rbc8') || (ph.window.bannersVersion == 'v8');
+                var v8C = v8 && ph.window.RA.config.get('abtest') == '8C';
+	        if (v7 || v8) {
+				if (1116 == 1508) {
+				    s += '<div class="banners__informers-realty__item">';
+					s += '<a href="' + item.link + '" target="_blank" class="banners__informers-realty__link">';
+					s += '<span class="banners__informers-realty__image-block"><img class="banners__informers-realty__image" src="' + item.image + '" alt=""></span>';
+					s += '<span class="banners__informers-realty__info">';
+					s += '<span class="banners__informers-realty__title">' + item.text[0] + '</span>';
+					s += '<span class="banners__informers-realty__text">' + item.text[1] + '</span>';
+					s += '<span class="banners__informers-realty__phone">' + item.text[2] + '<br>' + item.red_text+ '</span>';
+					if (item.text[3]) {
+						s += '<span class="banners__informers-realty__disclaimer">';
+						s += item.text[3] + (item.text[4]? ' ' + item.text[4] : '');
+						s += '</span>';
+					}
+					s += '</span>';
+					s += '</a>';
+					s += '</div>';
+				} else {
+					s += '<a target="_blank" href="'+ item.link +'" class="banners__special-offers__link">';
+					s += '<img src="' + item.image + '" class="banners__special-offers__img">';
+					s += '<span class="banners__special-offers__description">';
+					s += '<span class="banners__special-offers__title'+(v8? '_new' : '')+'">' + item.text[0] + '</span>';
+					s += '<span class="banners__special-offers__text'+(v8? '_new' : '')+'">' + item.text[1] + '<br>' + item.text[2] +  '</span>';
+					if (item.text[3]) {
+						s += '<span class="banners__special-offers__disclaimer">';
+						s += item.text[3] + (item.text[4]? ' ' + item.text[4] : '');
+						s += '</span>';
+					}
+					s += '</span>';
+					s += '</a>';
+				}
+			}
+			return s;	
+	}
+	window.banner1116_535121699.print = function (b) {
+			if (!b.items || !b.items.length) return '';
+			var banner_str = '';	
+                	var v7 = (b.ph.window.projectVersion == 'rbc7') || (b.ph.window.bannersVersion == 'v7');
+                	var v8 = (b.ph.window.projectVersion == 'rbc8') || (b.ph.window.bannersVersion == 'v8');
+			if (v7 || v8) {
+                		if (parseInt("1116") == 1508) {
+					banner_str += '<div class="banners__informers-realty banners__informers-realty__vertical">';
+					banner_str += '<div class="banners__informers-realty__wrap">';
+				} else {
+					banner_str += '<div class="banners__special-offers">';
+					banner_str += '<div class="banners__special-offers__wrapper">';
+				}
+			} 
+
+			for (var i = 0, l = b.items.length; i < l; i++) {
+				if(typeof b.print_item == 'function') {
+					banner_str += b.print_item(b.ph, b.items[i]);
+				}
+			}
+
+			if (v7 || v8) {
+				banner_str += '</div>';
+				banner_str += '</div>';
+			}
+
+			return banner_str;
+	},
+	
+	window.init1116_535121699 = function () {
+		var o = document.getElementById("mlph1116_535121699");
+		if (typeof obj_mlText != 'undefined' && o != null) { 
+			obj_mlText.init(banner1116_535121699);	
+		} else {
+			setTimeout(init1116_535121699, 50);
+		}
+	}
+} else {
+	if (!window.banner1116_535121699) {
+		setTimeout(arguments.callee, 50);
+		return;
+	}
+}
+
+/*each banner*/
+if (index < count1116_535121699) {
+	banner1116_535121699.items.push({
+		'bid' : '465806',
+		'index' : '0',
+		'image' : 'https://content.rbc.medialand.ru/t17/a156045/b379791/limassol.jpg',
+		'link' : 'https://engine.rbc.medialand.ru/reference?gid=32&pid=1116&bid=465806&rid=535121699',
+		'title' : '&#1057;&#1055;&#1045;&#1062;&#1055;&#1056;&#1045;&#1044;&#1051;&#1054;&#1046;&#1045;&#1053;&#1048;&#1071;',
+	        'text' : ['Castle Residences', '&#1056;&#1086;&#1089;&#1082;&#1086;&#1096;&#1085;&#1099;&#1077;, &#1077;&#1076;&#1080;&#1085;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1080; &#1085;&#1077;&#1087;&#1086;&#1074;&#1090;&#1086;&#1088;&#1080;&#1084;&#1099;&#1077; &#1072;&#1087;&#1072;&#1088;&#1090;&#1072;&#1084;&#1077;&#1085;&#1090;&#1099; &#1085;&#1072; &#1050;&#1080;&#1087;&#1088;&#1077; &#1074; &#1086;&#1082;&#1088;&#1091;&#1078;&#1077;&#1085;&#1080;&#1080; &#1084;&#1086;&#1088;&#1103;.', '+7 495 643 1901<br>Limassol Marina', ("" == "1" || "" == "2")? "&#1055;&#1088;&#1086;&#1077;&#1082;&#1090;&#1085;&#1072;&#1103;&#32;&#1076;&#1077;&#1082;&#1083;&#1072;&#1088;&#1072;&#1094;&#1080;&#1103;&#32;&#1085;&#1072;&#32;&#1088;&#1077;&#1082;&#1083;&#1072;&#1084;&#1080;&#1088;&#1091;&#1077;&#1084;&#1086;&#1084;&#32;&#1089;&#1072;&#1081;&#1090;&#1077;&#46;" : "", "" == "2"? "&#1047;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1097;&#1080;&#1082;&#58; " : "" ],
+		'red_text' : '',
+                'place_dir' : "rbc.ru/",
+		'zpx' : ["https://engine.rbc.medialand.ru/action?bid=465806&pid=1116&rid=535121699&rid2=137388020&jlt=on", "",""]
+	});
+}
+		
+if (index == count1116_535121699 - 1) init1116_535121699();
+
+})();/*
+description : нижние информеры главная страницы Realty.rbc.ru и rbc.ru в блоке "Недвижимость" /
+path : /trunk/templates_2/teaser/template_teaser_nedv_2_columns_new.js
+*/
+
+(function () {
+
+var d = new Date();
+var drnd = d.getFullYear()+''+d.getMonth()+''+d.getDate();
+var index = parseInt("1");
+var count = parseInt("2");
+
+/* first banner */
+if (index == 0) {
+
+	/* check div, check js */
+	var o = document.getElementById("mlph1116_535121699");
+	if(!o) {
+		if (!window.PREVENT_DOCWRITE) document.write('<div id="mlph1116_535121699"></div>');
+		setTimeout(arguments.callee, 50);
+		return 
+	} else {
+		var scriptEl = document.createElement("script");
+		scriptEl.setAttribute("type", "text/javascript");
+		scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/base.js?"+drnd);
+                o.parentNode.insertBefore(scriptEl, o);
+		scriptEl =  document.createElement("script");
+		scriptEl.setAttribute("type", "text/javascript");
+		scriptEl.setAttribute("src", "//content.rbc.medialand.ru/templates_2/inline_text_teaser.js?"+drnd);
+                o.parentNode.insertBefore(scriptEl, o);
+	}
+	
+	window.banner1116_535121699 = {
+		pid : "1116_535121699",
+		rand_url : "",
+		banner_count : isNaN(parseInt('')) ? parseInt('2') : parseInt(''),
+		max_letters : isNaN(parseInt("")) ? 150 : parseInt(""),
+		place_dir : "rbc.ru/",
+		items : [], 
+		print_item : null,
+		print : null
+	};
+	// default print_item
+	//print (view table)
+	if (banner1116_535121699.banner_count < count) window.count1116_535121699 = banner1116_535121699.banner_count;
+	else window.count1116_535121699 = count;
+	window.banner1116_535121699.print_item = function (ph, item) {
+		var s = '';
+                var v7 = (ph.window.projectVersion == 'rbc7') || (ph.window.bannersVersion == 'v7');
+                var v8 = (ph.window.projectVersion == 'rbc8') || (ph.window.bannersVersion == 'v8');
+                var v8C = v8 && ph.window.RA.config.get('abtest') == '8C';
+	        if (v7 || v8) {
+				if (1116 == 1508) {
+				    s += '<div class="banners__informers-realty__item">';
+					s += '<a href="' + item.link + '" target="_blank" class="banners__informers-realty__link">';
+					s += '<span class="banners__informers-realty__image-block"><img class="banners__informers-realty__image" src="' + item.image + '" alt=""></span>';
+					s += '<span class="banners__informers-realty__info">';
+					s += '<span class="banners__informers-realty__title">' + item.text[0] + '</span>';
+					s += '<span class="banners__informers-realty__text">' + item.text[1] + '</span>';
+					s += '<span class="banners__informers-realty__phone">' + item.text[2] + '<br>' + item.red_text+ '</span>';
+					if (item.text[3]) {
+						s += '<span class="banners__informers-realty__disclaimer">';
+						s += item.text[3] + (item.text[4]? ' ' + item.text[4] : '');
+						s += '</span>';
+					}
+					s += '</span>';
+					s += '</a>';
+					s += '</div>';
+				} else {
+					s += '<a target="_blank" href="'+ item.link +'" class="banners__special-offers__link">';
+					s += '<img src="' + item.image + '" class="banners__special-offers__img">';
+					s += '<span class="banners__special-offers__description">';
+					s += '<span class="banners__special-offers__title'+(v8? '_new' : '')+'">' + item.text[0] + '</span>';
+					s += '<span class="banners__special-offers__text'+(v8? '_new' : '')+'">' + item.text[1] + '<br>' + item.text[2] +  '</span>';
+					if (item.text[3]) {
+						s += '<span class="banners__special-offers__disclaimer">';
+						s += item.text[3] + (item.text[4]? ' ' + item.text[4] : '');
+						s += '</span>';
+					}
+					s += '</span>';
+					s += '</a>';
+				}
+			}
+			return s;	
+	}
+	window.banner1116_535121699.print = function (b) {
+			if (!b.items || !b.items.length) return '';
+			var banner_str = '';	
+                	var v7 = (b.ph.window.projectVersion == 'rbc7') || (b.ph.window.bannersVersion == 'v7');
+                	var v8 = (b.ph.window.projectVersion == 'rbc8') || (b.ph.window.bannersVersion == 'v8');
+			if (v7 || v8) {
+                		if (parseInt("1116") == 1508) {
+					banner_str += '<div class="banners__informers-realty banners__informers-realty__vertical">';
+					banner_str += '<div class="banners__informers-realty__wrap">';
+				} else {
+					banner_str += '<div class="banners__special-offers">';
+					banner_str += '<div class="banners__special-offers__wrapper">';
+				}
+			} 
+
+			for (var i = 0, l = b.items.length; i < l; i++) {
+				if(typeof b.print_item == 'function') {
+					banner_str += b.print_item(b.ph, b.items[i]);
+				}
+			}
+
+			if (v7 || v8) {
+				banner_str += '</div>';
+				banner_str += '</div>';
+			}
+
+			return banner_str;
+	},
+	
+	window.init1116_535121699 = function () {
+		var o = document.getElementById("mlph1116_535121699");
+		if (typeof obj_mlText != 'undefined' && o != null) { 
+			obj_mlText.init(banner1116_535121699);	
+		} else {
+			setTimeout(init1116_535121699, 50);
+		}
+	}
+} else {
+	if (!window.banner1116_535121699) {
+		setTimeout(arguments.callee, 50);
+		return;
+	}
+}
+
+/*each banner*/
+if (index < count1116_535121699) {
+	banner1116_535121699.items.push({
+		'bid' : '465964',
+		'index' : '1',
+		'image' : 'https://content.rbc.medialand.ru/t17/a156045/b465924/cybarco_374x235_40.jpg',
+		'link' : 'https://engine.rbc.medialand.ru/reference?gid=32&pid=1116&bid=465964&rid=535121699',
+		'title' : '&#1057;&#1055;&#1045;&#1062;&#1055;&#1056;&#1045;&#1044;&#1051;&#1054;&#1046;&#1045;&#1053;&#1048;&#1071;',
+	        'text' : ['Aktea Residences, &#1050;&#1080;&#1087;&#1088;', '&#1056;&#1086;&#1089;&#1082;&#1086;&#1096;&#1085;&#1099;&#1077; &#1074;&#1080;&#1076;&#1086;&#1074;&#1099;&#1077; &#1072;&#1087;&#1072;&#1088;&#1090;&#1072;&#1084;&#1077;&#1085;&#1090;&#1099; &#1091; &#1084;&#1086;&#1088;&#1103; &#1080; &#1087;&#1083;&#1103;&#1078;&#1072; &#1074; &#1090;&#1080;&#1093;&#1086;&#1084; &#1094;&#1077;&#1085;&#1090;&#1088;&#1077; &#1051;&#1080;&#1084;&#1072;&#1089;&#1089;&#1086;&#1083;&#1072;. &#1054;&#1090; &#1074;&#1077;&#1076;&#1091;&#1097;&#1077;&#1075;&#1086; &#1076;&#1077;&#1074;&#1077;&#1083;&#1086;&#1087;&#1077;&#1088;&#1072; &#1089; 70-&#1083;&#1077;&#1090;&#1085;&#1080;&#1084; &#1086;&#1087;&#1099;&#1090;&#1086;&#1084;', 'Cybarco, +7 495 643 1901', ("0" == "1" || "0" == "2")? "&#1055;&#1088;&#1086;&#1077;&#1082;&#1090;&#1085;&#1072;&#1103;&#32;&#1076;&#1077;&#1082;&#1083;&#1072;&#1088;&#1072;&#1094;&#1080;&#1103;&#32;&#1085;&#1072;&#32;&#1088;&#1077;&#1082;&#1083;&#1072;&#1084;&#1080;&#1088;&#1091;&#1077;&#1084;&#1086;&#1084;&#32;&#1089;&#1072;&#1081;&#1090;&#1077;&#46;" : "", "0" == "2"? "&#1047;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1097;&#1080;&#1082;&#58; " : "" ],
+		'red_text' : '&#1086;&#1090; 36 &#1084;&#1083;&#1085;. &#1088;&#1091;&#1073;. &#1073;&#1077;&#1079; &#1053;&#1044;&#1057;',
+                'place_dir' : "rbc.ru/",
+		'zpx' : ["https://engine.rbc.medialand.ru/action?bid=465964&pid=1116&rid=535121699&rid2=1931086261&jlt=on", "",""]
+	});
+}
+		
+if (index == count1116_535121699 - 1) init1116_535121699();
+
+})();
