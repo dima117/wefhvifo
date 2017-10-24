@@ -1,0 +1,48 @@
+/* default banner */
+
+(function(URLs) { for (var i = 0; i < URLs.length && URLs[i]; i++) { if (!URLs[i].match(/adfox\.ru\/transparent\.gif$/)) { (function(url, img) { img.src = url; })(URLs[i], new Image()); } } })('https://www.tns-counter.ru/V13a****vitpc_ad/ru/CP1251/tmsec=vitpc_monitoring-3/348809421'.split('|'));
+
+setTimeout(function(){ document.close(); }, 10);
+(function(adfoxPlaceholderId){
+		var
+		adfoxWindow = window,
+		adfoxDocument = window.document,
+		adfoxPlaceholder = adfoxDocument.getElementById(adfoxPlaceholderId);
+
+	try{
+		while((adfoxPlaceholder == null) && (adfoxWindow != window.top)){
+			adfoxWindow = adfoxWindow.parent;
+			adfoxDocument = adfoxWindow.document;
+			adfoxPlaceholder = adfoxDocument.getElementById(adfoxPlaceholderId); 
+		}
+	} 
+	catch(ex){}
+	
+	if(adfoxPlaceholder)
+	{
+		var dl = escape(adfoxDocument.location),
+			pr1 = Math.floor(Math.random()*1000000),
+			afReferrer = '',
+			addate = new Date();
+		
+		if (typeof(adfoxWindow.pr) == 'undefined') { adfoxWindow.pr = Math.floor(Math.random() * 1000000); }
+		
+		if (typeof(adfoxDocument.referrer) != 'undefined') {
+		if (typeof(adfoxWindow.afReferrer) == 'undefined') {
+			adfoxWindow.afReferrer = escape(adfoxDocument.referrer);
+		  }
+		} else {
+		  adfoxWindow.afReferrer = '';
+		}
+		
+		var requestDiv = adfoxDocument.createElement('div');
+		requestDiv.style.visibility = 'hidden';
+		requestDiv.style.position = 'absolute';
+		requestDiv.innerHTML = '<iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe>';
+		
+		adfoxPlaceholder.innerHTML = '<div id="AdFox_banner_'+pr1+'"><\/div>';
+		adfoxPlaceholder.parentNode.insertBefore(requestDiv, adfoxPlaceholder);
+		
+		adfoxWindow.AdFox_getCodeScript(1,pr1,'//ads.adfox.ru/249922/prepareCode?ps=chyo&p2=fmks&pp=jgd&pk=imho&pke=1&puid1=&pr=' + adfoxWindow.pr +'&pt=b&pd=' + addate.getDate() + '&pw=' + addate.getDay() + '&pv=' + addate.getHours() + '&prr=' + adfoxWindow.afReferrer + '&dl='+dl+'&pr1='+pr1);
+	}
+})('AdFox_banner_2989434907');

@@ -1,0 +1,132 @@
+var INFOX1607 = {
+	initialized: false,
+	tID: null,
+	toElem: null,
+	getXmlHttp : function() {
+		var xmlhttp;
+		try {
+			xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (E) {
+				xmlhttp = false;
+			}
+		}
+		if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
+			xmlhttp = new XMLHttpRequest();
+		}
+		return xmlhttp;
+	},
+	shuffle : function(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex;
+
+		// While there remain elements to shuffle...
+		while (0 !== currentIndex) {
+
+			// Pick a remaining element...
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+
+			// And swap it with the current element.
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+
+		return array;
+	},
+	doRequest: function() {
+		var self = this;
+		var req = self.getXmlHttp()
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+				var myArr = JSON.parse(req.responseText);
+				if (myArr.length > 0) {
+					if (myArr.length == 1 && myArr[0].code != null) {
+						self.toElem.innerHTML = myArr[0].code;
+					} else {
+						var html = "<style type='text/css'>.teaser_two .title, .teaser_three .title {border-bottom:1px solid #e5e5e5;height:15px;font: bold 14px Arial, sans-serif;color: #000;padding-bottom: 8px;margin-bottom: 10px;}.teaser_two table, .teaser_three table {width: 100%;border-collapse: collapse;font: 13px/1.2 Arial, sans-serif;}.teaser_two td, .teaser_three td {vertical-align: top;}.teaser_two img, .teaser_three img {float: left;margin-bottom: 10px;margin-right: 10px;border: none;}.teaser_two a[title], .teaser_three a[title] {color: #666;text-decoration:none;font-size:12px;}.teaser_three td {width: 33%;}#adfox_banner_slon .adph {width: 55px ! important;height: 39px !important;position: relative;margin: 0 10px 10px 0;overflow: hidden;display: block;float: left;}#adfox_banner_slon .adph img {height: 39px !important;width: auto !important;border: none;position: relative;left: -7px;}#adfox_banner_slon .title a {color: #000;text-decoration:none;}#adfox_banner_slon .title a:hover {text-decoration:underline;}#adfox_banner_slon td {padding-top: 3px;}</style><div class='teaser_two' id='adfox_banner_slon'>    <div class='title'><a href='http://www.infox.sg' target='_blank'>INFOX.SG</a></div>    <table>    <tbody>    ";
+						self.shuffle(myArr);
+						for (var i = 0; i < myArr.length; i++) {
+							var item = myArr[i];
+							var str = "<tr>    <td id='adfox_{n}' title=''>    <a href='{url}' class='adph' target='_blank'><img src='{img}'></a>    <a title='' target='_blank' href='{url}'>{title}</a>    </td>    </tr>    <tr>";
+							str = str.replace(/\{url\}/g, item.url)
+									.replace('{img}', item.img)
+									.replace('{width}', item.width)
+									.replace('{height}', item.height)
+									.replace('{title}', item.title)
+									.replace('{n}', i);
+							html += str;
+						}
+						html += "    </tbody>    </table>    </div>";
+						html += "";
+						self.toElem.innerHTML = html;
+					}
+					self.checkScroll();
+				}
+			}
+		}
+		req.open('GET', 'https://rb.infox.sg/json?id=1607', true);
+		req.withCredentials = true;
+		req.send(null);
+	},
+	track: function() {
+		var self = INFOX1607;
+		var req = self.getXmlHttp()
+		req.open('GET', 'https://rb.infox.sg/track', true);
+		req.withCredentials = true;
+		req.send(null);
+	    window.removeEventListener("scroll", self.checkScroll); 
+	},
+    checkScroll : function() {
+		var self = INFOX1607;
+		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		var scrollHeight = window.innerHeight
+			|| document.documentElement.clientHeight
+			|| document.body.clientHeight;
+	    var box = self.toElem.getBoundingClientRect();
+	    var clientTop = self.toElem.clientTop || 0;
+	    var top  = box.top +  scrollTop - clientTop;
+	    //window.console.warn("st " + scrollTop + " sh " + scrollHeight + " top " + top);
+		if (scrollTop + scrollHeight > top) {
+			if (!self.initialized) {
+				self.initialized = true;
+			    self.doRequest();
+				return true;
+			} else {
+				var h = self.toElem.offsetHeight;
+			    //window.console.warn("h " + h  + " " + (scrollTop + scrollHeight) + " > " + (top + h / 2) + " = " + (scrollTop + scrollHeight > top + h / 2) + " && " + (top + h) + " > " + scrollTop + " = " + (top + h > scrollTop));
+				if (scrollTop + scrollHeight > top + h / 2 && top + h > scrollTop) {
+					if (!self.tId) {
+						self.tId = setTimeout(self.track, 1000)
+					}
+					return true;
+				}
+			}
+		}
+		if (self.tId) {
+			clearTimeout(self.tId);
+			self.tId = null;
+		}
+		return false;
+	},
+	renderTo : function(divId) {
+		var self = this;
+		self.toElem = document.getElementById(divId);
+		if (!self.toElem) return;
+
+	    if (!self.checkScroll()) {
+	    	window.addEventListener("scroll", self.checkScroll); 
+	    }
+	},
+	init : function() {
+		var blocks = window['infoxContextAsyncCallbacks1607'];
+		if (blocks) {
+			for (i in blocks) {
+				blocks[i]();
+			}
+		}
+	}
+};
+INFOX1607.init();
